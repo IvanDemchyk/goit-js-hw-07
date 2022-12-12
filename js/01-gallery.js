@@ -40,8 +40,7 @@ function sizeChange(evt) {
       onShow: (instance) => {
         document.addEventListener("keydown", closeImg);
       },
-    },
-    {
+
       onClose: (instance) => {
         document.removeEventListener("keydown", closeImg);
       },

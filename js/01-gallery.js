@@ -28,16 +28,24 @@ function sizeChange(evt) {
     return;
   }
 
-  const instance = basicLightbox.create(
-    `<img src="${evt.target.dataset.source}" width="100%" heigth="100%" >`
-  );
-  instance.show();
-
-  gallery.addEventListener("keydown", closeImg);
-
   function closeImg(evt) {
     if (evt.key === "Escape") {
       instance.close();
     }
   }
+
+  const instance = basicLightbox.create(
+    `<img src="${evt.target.dataset.source}" >`,
+    {
+      onShow: (instance) => {
+        document.addEventListener("keydown", closeImg);
+      },
+    },
+    {
+      onClose: (instance) => {
+        document.removeEventListener("keydown", closeImg);
+      },
+    }
+  );
+  instance.show();
 }

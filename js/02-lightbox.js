@@ -16,19 +16,25 @@ const markup = galleryItems
 
 gallery.insertAdjacentHTML("beforeend", markup);
 
-gallery.addEventListener("click", sizeChange);
+const lightBox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionPosition: "bottom",
+  captionDelay: 250,
+});
 
-function sizeChange(evt) {
-  evt.preventDefault();
-  const onImage = evt.target.classList.contains("gallery__image");
+// gallery.addEventListener("click", sizeChange);
 
-  if (!onImage) {
-    return;
-  }
+// function sizeChange(evt) {
+//   evt.preventDefault();
+//   const onImage = evt.target.classList.contains("gallery__image");
 
-  const lightBox = new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionPosition: "bottom",
-    captionDelay: 250,
-  });
-}
+//   if (!onImage) {
+//     return;
+//   }
+
+//   const lightBox = new SimpleLightbox(".gallery a", {
+//     captionsData: "alt",
+//     captionPosition: "bottom",
+//     captionDelay: 250,
+//   });
+// }
